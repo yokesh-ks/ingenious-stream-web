@@ -1,5 +1,3 @@
-"use server";
-
 import { getAllLanguages, Language } from '@/lib/fetcher/browser-radio-api';
 
 export async function fetchAllLanguages(): Promise<Language[]> {

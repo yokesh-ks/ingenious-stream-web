@@ -1,11 +1,18 @@
 import { Music } from 'lucide-react';
 import { StationCard } from '@/components/radio/station-card';
 import { fetchStationsByGenre } from './actions';
+import { FEATURED_GENRES } from '@/app/radio/_constants/featured-genres';
 
 interface GenrePageProps {
   params: Promise<{
     genre: string;
   }>;
+}
+
+export function generateStaticParams() {
+  return FEATURED_GENRES.map((genre) => ({
+    genre: genre.name,
+  }));
 }
 
 export default async function GenrePage({ params }: GenrePageProps) {

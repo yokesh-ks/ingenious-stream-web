@@ -1,11 +1,18 @@
 import { Languages } from 'lucide-react';
 import { StationCard } from '@/components/radio/station-card';
 import { fetchStationsByLanguage } from './actions';
+import { FEATURED_LANGUAGES } from '@/app/radio/_constants/featured-languages';
 
 interface LanguagePageProps {
   params: Promise<{
     language: string;
   }>;
+}
+
+export function generateStaticParams() {
+  return FEATURED_LANGUAGES.map((language) => ({
+    language: language,
+  }));
 }
 
 export default async function LanguagePage({ params }: LanguagePageProps) {

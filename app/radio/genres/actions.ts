@@ -1,5 +1,3 @@
-"use server";
-
 import { getAllGenres, GenreTag } from '@/lib/fetcher/browser-radio-api';
 
 export async function fetchAllGenres(): Promise<GenreTag[]> {
