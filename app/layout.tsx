@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { PlayerProvider } from "@/context/PlayerContext";
+import { PlayerBar } from "@/components/radio/player-bar";
+
+import { TaskSidebar } from '@/components/task/sidebar/task-sidebar';
+import { SidebarProvider } from '@/components/ui/sidebar';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Task Management",
-  description: "Simple board interface for managing tasks",
+  title: "Ingenious Stream - Radio & Entertainment",
+  description: "Stream live radio stations from around the world",
 };
 
 export default function RootLayout({
@@ -34,7 +39,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <PlayerProvider>
+            <SidebarProvider>
+              <TaskSidebar />
+
+              {children}
+
+              <PlayerBar />
+            </SidebarProvider>
+          </PlayerProvider>
         </ThemeProvider>
       </body>
     </html>
