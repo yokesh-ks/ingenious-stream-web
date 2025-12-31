@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "ingenious-streams-web",
   "compatibility_date": "2025-12-31",
   "assets": {
