@@ -2,7 +2,7 @@ import { ChannelSearch } from "./channel-search";
 
 export default function TVGuidePage() {
   return (
-    <div className="h-full overflow-y-auto bg-background">
+    <div className="w-full h-full overflow-y-auto bg-background">
       <div className="max-w-[1400px] mx-auto p-6 space-y-6">
         {/* Header */}
         <div className="space-y-2">

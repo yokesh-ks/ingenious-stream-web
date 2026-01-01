@@ -86,7 +86,7 @@ const movieGenres = [
 
 export default function MoviesPage() {
   return (
-    <div className="h-full overflow-y-auto bg-background">
+    <div className="w-full h-full overflow-y-auto bg-background">
       <div className="max-w-[1400px] mx-auto p-6 space-y-6">
         {/* Search Bar */}
         <div className="relative max-w-xs">
