@@ -9,9 +9,7 @@ export default function Home() {
 					<h1 className="text-4xl md:text-5xl font-bold">
 						Welcome to <span className="text-purple-600">Ingenious Streams</span>
 					</h1>
-					<p className="text-muted-foreground text-lg">
-						Your gateway to endless entertainment
-					</p>
+					<p className="text-muted-foreground text-lg">Your gateway to endless entertainment</p>
 				</div>
 
 				{/* Cards Grid */}
@@ -39,15 +37,9 @@ export default function Home() {
 									</div>
 								</div>
 							</div>
-							<div className="absolute right-6 bottom-4 text-8xl opacity-20">
-								🎬
-							</div>
-							<div className="absolute top-6 right-1/4 text-white text-2xl opacity-30">
-								🍿
-							</div>
-							<div className="absolute bottom-6 right-1/3 text-white text-xl opacity-30">
-								⭐
-							</div>
+							<div className="absolute right-6 bottom-4 text-8xl opacity-20">🎬</div>
+							<div className="absolute top-6 right-1/4 text-white text-2xl opacity-30">🍿</div>
+							<div className="absolute bottom-6 right-1/3 text-white text-xl opacity-30">⭐</div>
 						</div>
 					</Link>
 
@@ -74,15 +66,9 @@ export default function Home() {
 									</div>
 								</div>
 							</div>
-							<div className="absolute right-6 bottom-4 text-8xl opacity-20">
-								📻
-							</div>
-							<div className="absolute top-6 right-1/4 text-white text-2xl opacity-30">
-								🎵
-							</div>
-							<div className="absolute bottom-6 right-1/3 text-white text-xl opacity-30">
-								🎧
-							</div>
+							<div className="absolute right-6 bottom-4 text-8xl opacity-20">📻</div>
+							<div className="absolute top-6 right-1/4 text-white text-2xl opacity-30">🎵</div>
+							<div className="absolute bottom-6 right-1/3 text-white text-xl opacity-30">🎧</div>
 						</div>
 					</Link>
 
@@ -94,9 +80,7 @@ export default function Home() {
 									<h2 className="text-3xl font-bold text-white mb-3">
 										Watch <span className="text-yellow-400">Live TV</span>
 									</h2>
-									<p className="text-white/90 text-sm">
-										Stream live TV channels in real-time
-									</p>
+									<p className="text-white/90 text-sm">Stream live TV channels in real-time</p>
 								</div>
 								<div className="flex items-center gap-4 text-white/80 text-xs">
 									<div className="flex items-center gap-2">
@@ -109,15 +93,9 @@ export default function Home() {
 									</div>
 								</div>
 							</div>
-							<div className="absolute right-6 bottom-4 text-8xl opacity-20">
-								📺
-							</div>
-							<div className="absolute top-6 right-1/4 text-white text-2xl opacity-30">
-								🎪
-							</div>
-							<div className="absolute bottom-6 right-1/3 text-white text-xl opacity-30">
-								🎭
-							</div>
+							<div className="absolute right-6 bottom-4 text-8xl opacity-20">📺</div>
+							<div className="absolute top-6 right-1/4 text-white text-2xl opacity-30">🎪</div>
+							<div className="absolute bottom-6 right-1/3 text-white text-xl opacity-30">🎭</div>
 						</div>
 					</Link>
 				</div>

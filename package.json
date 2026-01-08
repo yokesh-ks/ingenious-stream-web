@@ -9,10 +9,7 @@
 		"lint": "eslint",
 		"commit": "git-cz",
 		"deploy": "next build && npx wrangler deploy",
-		"biome:check": "biome check .",
-		"biome:format": "biome format --write .",
-		"biome:lint": "biome lint .",
-		"biome:fix": "biome check --write ."
+		"format": "biome format --write ."
 	},
 	"config": {
 		"commitizen": {

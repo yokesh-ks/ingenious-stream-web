@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import type { Channel } from "../../actions";
 
 interface ChannelGridProps {
@@ -15,8 +14,6 @@ interface ChannelGridProps {
 }
 
 export default function ChannelGrid({ channels, languageColor }: ChannelGridProps) {
-	const params = useParams();
-	const slug = params.slug as string;
 	const [searchQuery, setSearchQuery] = useState("");
 
 	const filteredChannels = channels.filter((channel) =>
@@ -41,7 +38,7 @@ export default function ChannelGrid({ channels, languageColor }: ChannelGridProp
 				{filteredChannels.map((channel) => (
 					<Link
 						key={channel.id}
-						href={`/live-tv/${slug}/${channel.id}`}
+						href={channel.streamUrl}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="group relative bg-gradient-to-br from-card to-muted/30 rounded-xl p-4 hover:shadow-xl transition-all duration-300 cursor-pointer border border-border/50 hover:border-primary/50 hover:-translate-y-1 overflow-hidden"

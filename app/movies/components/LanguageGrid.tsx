@@ -103,8 +103,6 @@ export default function LanguageGrid({ languages, languageColors }: LanguageGrid
 										</span>
 									</div>
 								</div>
-
-
 							</div>
 
 							{/* Subtle shine effect on hover */}
