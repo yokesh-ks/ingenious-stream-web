@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Tv, Radio, Film, ChevronDown, Search } from "lucide-react";
+import { Home, Tv, Radio, Film, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Sidebar, SidebarContent, SidebarHeader } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
@@ -124,12 +124,6 @@ export function TaskSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
 						label="Movies"
 						href="/movies"
 						active={pathname === "/movies"}
-					/>
-					<SidebarItem
-						icon={<Search className="size-4" />}
-						label="TV Guide"
-						href="/tv-guide"
-						active={pathname === "/tv-guide"}
 					/>
 				</div>
 			</SidebarContent>

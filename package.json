@@ -7,11 +7,17 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "eslint",
+		"commit": "git-cz",
 		"deploy": "next build && npx wrangler deploy",
 		"biome:check": "biome check .",
 		"biome:format": "biome format --write .",
 		"biome:lint": "biome lint .",
 		"biome:fix": "biome check --write ."
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
 	},
 	"dependencies": {
 		"@radix-ui/react-avatar": "^1.1.10",
@@ -41,6 +47,8 @@
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"commitizen": "^4.3.0",
+		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^9",
 		"eslint-config-next": "16.0.10",
 		"tailwindcss": "^4",
