@@ -10,7 +10,7 @@ export default async function RadioPage() {
 	const trendingStations = data.trendingStations || [];
 
 	return (
-		<div className="min-h-screen pb-32 bg-background">
+		<div className="min-h-screen">
 			<GenresSection />
 			<TopRatedSection stations={topStations} />
 			<TrendingSection stations={trendingStations} />

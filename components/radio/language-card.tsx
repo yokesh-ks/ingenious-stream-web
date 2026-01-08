@@ -73,7 +73,7 @@ export function LanguageCard({ language, index = 0, stationCount }: LanguageCard
 
 	return (
 		<Link href={`/radio/languages/${encodeURIComponent(language)}`}>
-			<button className="relative group overflow-hidden rounded-2xl aspect-[4/3] w-full bg-card border border-border">
+			<button className="relative group overflow-hidden rounded-2xl aspect-[4/3] w-full bg-card border border-border cursor-pointer">
 				{/* Gradient background */}
 				<div
 					className="absolute inset-0 opacity-20"
