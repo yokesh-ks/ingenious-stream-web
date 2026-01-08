@@ -7,7 +7,7 @@ export default async function GenresPage() {
 	const genres = await fetchAllGenres();
 
 	return (
-		<div className="min-h-screen pb-32 bg-background">
+		<div className="min-h-screen">
 			<section className="px-4 sm:px-8 pt-8">
 				<div className="max-w-7xl mx-auto">
 					<div className="flex items-center gap-3 mb-8">
