@@ -41,6 +41,8 @@ export const PlayerProvider = ({ children }: { children: React.ReactNode }) => {
 
 	// Load favorites and recently played from localStorage
 	useEffect(() => {
+		if (typeof window === "undefined") return;
+
 		const savedFavorites = localStorage.getItem("radio-favorites");
 		const savedRecent = localStorage.getItem("radio-recently-played");
 		if (savedFavorites) {
@@ -61,16 +63,20 @@ export const PlayerProvider = ({ children }: { children: React.ReactNode }) => {
 
 	// Save favorites to localStorage
 	useEffect(() => {
+		if (typeof window === "undefined") return;
 		localStorage.setItem("radio-favorites", JSON.stringify(favorites));
 	}, [favorites]);
 
 	// Save recently played to localStorage
 	useEffect(() => {
+		if (typeof window === "undefined") return;
 		localStorage.setItem("radio-recently-played", JSON.stringify(recentlyPlayed));
 	}, [recentlyPlayed]);
 
 	// Initialize audio element
 	useEffect(() => {
+		if (typeof window === "undefined") return;
+
 		if (!audioRef.current) {
 			audioRef.current = new Audio();
 			audioRef.current.volume = volume;

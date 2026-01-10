@@ -38,7 +38,7 @@ export default function ChannelGrid({ channels, languageColor }: ChannelGridProp
 				{filteredChannels.map((channel) => (
 					<Link
 						key={channel.id}
-						href={channel.streamUrl}
+						href={channel.streamUrl ?? ""}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="group relative bg-gradient-to-br from-card to-muted/30 rounded-xl p-4 hover:shadow-xl transition-all duration-300 cursor-pointer border border-border/50 hover:border-primary/50 hover:-translate-y-1 overflow-hidden"
