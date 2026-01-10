@@ -13,7 +13,12 @@ export function Footer() {
 						IngeniousClan.
 					</a>{" "}
 					All rights reserved. • Made with <span className="heart">♥</span> by{" "}
-					<a href="https://www.yokesh.in/?utm_source=stream.ingeniousclan.com&utm_medium=footer" target="_blank" rel="noreferrer" className="font-medium">
+					<a
+						href="https://www.yokesh.in/?utm_source=stream.ingeniousclan.com&utm_medium=footer"
+						target="_blank"
+						rel="noreferrer"
+						className="font-medium"
+					>
 						Yokesh
 					</a>
 				</p>
