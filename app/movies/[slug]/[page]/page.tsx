@@ -1,26 +1,51 @@
-import { getMoviesByLanguage, getLanguages, getLanguagePaginationMetadata } from "../actions";
-import MovieGrid from "./components/MovieGrid";
+import {
+	getLanguages,
+	getLanguagePaginationMetadata,
+	getMoviesByLanguage,
+} from "../../actions";
+import MovieGrid from "../components/MovieGrid";
 import Link from "next/link";
 
 interface MovieLanguagePageProps {
 	params: Promise<{
 		slug: string;
+		page: string;
 	}>;
 }
 
 export async function generateStaticParams() {
 	const languages = await getLanguages();
-	return languages.map((language) => ({
-		slug: language.slug,
-	}));
+	const params: { slug: string; page: string }[] = [];
+
+	for (const language of languages) {
+		const metadata = await getLanguagePaginationMetadata(language.slug);
+
+		if (metadata && metadata.files > 1) {
+			// Generate page numbers starting from 1 (since 0 is handled by [slug]/page.tsx)
+			for (let i = 1; i < metadata.files; i++) {
+				params.push({
+					slug: language.slug,
+					page: i.toString(),
+				});
+			}
+		}
+	}
+
+	return params;
 }
 
-export default async function MovieLanguagePage({ params }: MovieLanguagePageProps) {
-	const { slug } = await params;
-	const movies = await getMoviesByLanguage(slug, 0);
+export default async function MovieLanguagePageWithPagination({
+	params,
+}: MovieLanguagePageProps) {
+	const { slug, page } = await params;
+	const pageNumber = parseInt(page, 10);
+	const movies = await getMoviesByLanguage(slug, pageNumber);
 	const languageName = slug.charAt(0).toUpperCase() + slug.slice(1);
 	const metadata = await getLanguagePaginationMetadata(slug);
-	const hasNextPage = metadata && metadata.files > 1;
+	const totalPages = metadata?.files || 1;
+	const currentPage = pageNumber + 1; // Display as 1-indexed
+	const hasNextPage = pageNumber < totalPages - 1;
+	const hasPreviousPage = pageNumber > 0;
 
 	return (
 		<div className="w-full h-full overflow-y-auto bg-background">
@@ -53,18 +78,31 @@ export default async function MovieLanguagePage({ params }: MovieLanguagePagePro
 				{/* Pagination */}
 				{movies.length > 0 && (
 					<div className="flex justify-center items-center gap-4 py-8">
-						<button
-							disabled
-							className="px-6 py-2 rounded-lg bg-muted text-muted-foreground cursor-not-allowed"
-						>
-							Previous
-						</button>
+						{hasPreviousPage ? (
+							<Link
+								href={
+									pageNumber === 1
+										? `/movies/${slug}`
+										: `/movies/${slug}/${pageNumber - 1}`
+								}
+								className="px-6 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+							>
+								Previous
+							</Link>
+						) : (
+							<button
+								disabled
+								className="px-6 py-2 rounded-lg bg-muted text-muted-foreground cursor-not-allowed"
+							>
+								Previous
+							</button>
+						)}
 						<span className="text-sm text-muted-foreground">
-							Page 1 {metadata && `of ${metadata.files}`}
+							Page {currentPage} of {totalPages}
 						</span>
 						{hasNextPage ? (
 							<Link
-								href={`/movies/${slug}/1`}
+								href={`/movies/${slug}/${pageNumber + 1}`}
 								className="px-6 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
 							>
 								Next
