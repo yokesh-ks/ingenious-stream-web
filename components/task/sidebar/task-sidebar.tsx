@@ -124,7 +124,7 @@ export function TaskSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
 						/>
 					</div>
 
-					<SidebarGroup>
+					<SidebarGroup className="p-0">
 						<SidebarGroupLabel>Tools</SidebarGroupLabel>
 						<SidebarGroupContent>
 							<div className="space-y-0.5">
