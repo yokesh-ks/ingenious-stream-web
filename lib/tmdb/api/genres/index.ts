@@ -1,5 +1,5 @@
-import { api } from "@/tmdb/api/api";
-import { GenreResponse } from "@/tmdb/api/types";
+import { api } from "@/lib/tmdb/api/api";
+import { GenreResponse } from "@/lib/tmdb/api/types";
 
 /**
  * Fetches the list of movie genres from the TMDB API.

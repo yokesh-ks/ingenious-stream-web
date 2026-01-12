@@ -1,4 +1,4 @@
-import { Cast, Crew, Image, Video } from "@/tmdb/models";
+import { Cast, Crew, Image, Video } from "@/lib/tmdb/models";
 
 export * from "./movie/types";
 export * from "./trending/types";

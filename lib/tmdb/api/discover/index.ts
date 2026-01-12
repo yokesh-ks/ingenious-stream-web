@@ -1,10 +1,10 @@
-import { api } from "@/tmdb/api/api";
+import { api } from "@/lib/tmdb/api/api";
 import {
 	DiscoverMovieRequestParams,
 	DiscoverTvRequestParams,
 	ListResponse,
-} from "@/tmdb/api/types";
-import { Movie, TvShow } from "@/tmdb/models";
+} from "@/lib/tmdb/api/types";
+import { Movie, TvShow } from "@/lib/tmdb/models";
 
 /**
  * Fetches a list of movies based on the provided request parameters.

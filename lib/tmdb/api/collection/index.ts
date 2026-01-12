@@ -1,4 +1,4 @@
-import { DetailedCollection } from "@/tmdb/models";
+import { DetailedCollection } from "@/lib/tmdb/models";
 
 import { api } from "../api";
 import { CollectionRequestParams } from "./types";

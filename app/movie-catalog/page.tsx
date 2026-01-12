@@ -1,28 +1,66 @@
-export const metadata = {
-	title: "Movie Catalog",
-	description: "Coming soon - A comprehensive catalog of movies and entertainment content.",
-};
+import { pages } from "@/config";
+import { tmdb } from "@/lib/tmdb/api";
+import { SortByType } from "@/lib/tmdb/api/types";
 
-export default function MovieCatalogPage() {
+import { filterDiscoverParams } from "@/lib/utils";
+import { ListPagination } from "@/components/list-pagination";
+import { MovieCard } from "@/components/movie-card";
+
+interface ListPageProps {
+	searchParams?: Record<string, string>;
+}
+
+export async function generateMetadata() {
+	return {
+		title: "Discover Movies",
+		description: pages.movie.discover.description,
+	};
+}
+
+export default async function Discover({ searchParams }: ListPageProps) {
+	const region = "IN"; // Default region India
+	const params = searchParams;
+
+	// Parse page parameter to number, default to 1
+	const pageNumber = params?.page ? parseInt(params.page, 10) : 1;
+
+	const {
+		results: movies,
+		page: currentPage,
+		total_pages: totalPages,
+	} = await tmdb.discover.movie({
+		watch_region: region,
+		page: pageNumber.toString(),
+		sort_by: params?.sort_by as SortByType,
+		...filterDiscoverParams(params),
+	});
+
+	const { results: providers } = await tmdb.watchProviders.movie({
+		region,
+	});
+
+	const { genres } = await tmdb.genres.movie();
+
 	return (
-		<div className="flex flex-col items-center justify-center min-h-[400px] text-center space-y-6 py-6 lg:py-10">
-			<div className="space-y-2">
-				<h1 className="text-4xl font-bold tracking-tight">🎬 Movie Catalog</h1>
-				<p className="text-xl text-muted-foreground">
-					A comprehensive catalog of movies and entertainment content
-				</p>
-			</div>
+		<div>
+			{movies.length ? (
+				<div className="grid-list">
+					{movies.map((movie) => (
+						<MovieCard key={movie.id} {...movie} />
+					))}
+				</div>
+			) : (
+				<div className="container flex justify-center pb-[30dvh]">
+					<div className="text-center">
+						<h1 className="text-2xl">No movies found for the selected filters.</h1>
+						<p className="text-muted-foreground">
+							Try removing some of the filters to get more results.
+						</p>
+					</div>
+				</div>
+			)}
 
-			<div className="bg-muted/50 border rounded-lg p-8 max-w-md">
-				<div className="text-6xl mb-4">🚧</div>
-				<h2 className="text-2xl font-semibold mb-2">Coming Soon</h2>
-				<p className="text-muted-foreground">
-					We're working hard to bring you the most comprehensive movie catalog experience. Stay
-					tuned for updates!
-				</p>
-			</div>
-
-			<div className="text-sm text-muted-foreground">Expected launch: Q1 2025</div>
+			{movies?.length > 0 && <ListPagination currentPage={currentPage} totalPages={totalPages} />}
 		</div>
 	);
 }

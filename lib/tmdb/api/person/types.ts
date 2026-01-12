@@ -1,4 +1,4 @@
-import { CombinedCreditsResponse } from "@/tmdb/models";
+import { CombinedCreditsResponse } from "@/lib/tmdb/models";
 
 export type PersonListType = "popular";
 

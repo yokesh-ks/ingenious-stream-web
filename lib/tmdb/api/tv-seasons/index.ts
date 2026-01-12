@@ -1,4 +1,4 @@
-import { Credits, Image, SeasonDetails } from "@/tmdb/models";
+import { Credits, Image, SeasonDetails } from "@/lib/tmdb/models";
 
 import { api } from "../api";
 import { TvSeasonsDetailsRequestParams, TvSeasonsImagesRequestParams } from "./types";

@@ -1,4 +1,4 @@
-import { MovieWithMediaType, PersonWithMediaType, TvShowWithMediaType } from "@/tmdb/models";
+import { MovieWithMediaType, PersonWithMediaType, TvShowWithMediaType } from "@/lib/tmdb/models";
 
 import { api } from "../api";
 import { ListResponse } from "../types";

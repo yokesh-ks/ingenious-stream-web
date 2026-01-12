@@ -1,6 +1,6 @@
-import { api } from "@/tmdb/api/api";
-import { ListResponse, WatchProvidersRequestParams } from "@/tmdb/api/types";
-import { GetAvailableRegionsResponse, WatchProvider } from "@/tmdb/models";
+import { api } from "@/lib/tmdb/api/api";
+import { ListResponse, WatchProvidersRequestParams } from "@/lib/tmdb/api/types";
+import { GetAvailableRegionsResponse, WatchProvider } from "@/lib/tmdb/models";
 
 /**
  * Fetches the available regions for watch providers.

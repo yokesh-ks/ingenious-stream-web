@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PlayerProvider } from "@/context/PlayerContext";
 import { PlayerBar } from "@/components/radio/player-bar";
+import { QueryProvider } from "@/components/query-provider";
 
 import { TaskSidebar } from "@/components/task/sidebar/task-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
@@ -57,22 +58,24 @@ export default function RootLayout({
 					}}
 					strategy="afterInteractive"
 				/>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="light"
-					enableSystem
-					disableTransitionOnChange
-				>
-					<PlayerProvider>
-						<SidebarProvider>
-							<TaskSidebar />
+				<QueryProvider>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="light"
+						enableSystem
+						disableTransitionOnChange
+					>
+						<PlayerProvider>
+							<SidebarProvider>
+								<TaskSidebar />
 
-							{children}
+								{children}
 
-							<PlayerBar />
-						</SidebarProvider>
-					</PlayerProvider>
-				</ThemeProvider>
+								<PlayerBar />
+							</SidebarProvider>
+						</PlayerProvider>
+					</ThemeProvider>
+				</QueryProvider>
 			</body>
 		</html>
 	);

@@ -6,7 +6,7 @@ import {
 	MovieDetails,
 	Review,
 	WatchProviders,
-} from "@/tmdb/models";
+} from "@/lib/tmdb/models";
 
 import { api } from "../api";
 import { ListResponse } from "../types";

@@ -1,5 +1,5 @@
-import { ListResponse } from "@/tmdb/api/types";
-import { CombinedCreditsResponse, Person, PersonDetails } from "@/tmdb/models";
+import { ListResponse } from "@/lib/tmdb/api/types";
+import { CombinedCreditsResponse, Person, PersonDetails } from "@/lib/tmdb/models";
 
 import { api } from "../api";
 import { PersonDetailsRequestParams, PersonListRequestParams } from "./types";
