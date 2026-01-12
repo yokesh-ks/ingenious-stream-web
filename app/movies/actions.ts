@@ -14,7 +14,7 @@ export async function getLanguages(): Promise<Language[]> {
 }
 
 export async function getLanguagePaginationMetadata(
-	slug: string
+	slug: string,
 ): Promise<LanguageMetadata | null> {
 	return fetchLanguagePaginationMetadata(slug);
 }

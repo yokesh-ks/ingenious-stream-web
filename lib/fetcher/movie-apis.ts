@@ -45,7 +45,7 @@ export async function fetchLanguageMetadata(): Promise<Language[]> {
  * @param slug - Language slug (e.g., "tamil", "hindi")
  */
 export async function fetchLanguagePaginationMetadata(
-	slug: string
+	slug: string,
 ): Promise<LanguageMetadata | null> {
 	try {
 		const response = await fetch(`${BASE_URL}/language/${slug}/_meta.json`, {
@@ -53,9 +53,7 @@ export async function fetchLanguagePaginationMetadata(
 		});
 
 		if (!response.ok) {
-			throw new Error(
-				`Failed to fetch metadata for ${slug}: ${response.status}`
-			);
+			throw new Error(`Failed to fetch metadata for ${slug}: ${response.status}`);
 		}
 
 		return await response.json();
@@ -70,18 +68,12 @@ export async function fetchLanguagePaginationMetadata(
  * @param slug - Language slug (e.g., "tamil", "hindi")
  * @param page - Page number (defaults to 0 for 00.json, 1 for 01.json, etc.)
  */
-export async function fetchMoviesByLanguage(
-	slug: string,
-	page: number = 0
-): Promise<Movie[]> {
+export async function fetchMoviesByLanguage(slug: string, page: number = 0): Promise<Movie[]> {
 	try {
 		const pageNumber = page.toString().padStart(2, "0");
-		const response = await fetch(
-			`${BASE_URL}/language/${slug}/${pageNumber}.json`,
-			{
-				next: { revalidate: 3600 },
-			}
-		);
+		const response = await fetch(`${BASE_URL}/language/${slug}/${pageNumber}.json`, {
+			next: { revalidate: 3600 },
+		});
 
 		if (!response.ok) {
 			throw new Error(`Failed to fetch movies for ${slug}: ${response.status}`);

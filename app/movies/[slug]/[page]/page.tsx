@@ -1,8 +1,4 @@
-import {
-	getLanguages,
-	getLanguagePaginationMetadata,
-	getMoviesByLanguage,
-} from "../../actions";
+import { getLanguages, getLanguagePaginationMetadata, getMoviesByLanguage } from "../../actions";
 import MovieGrid from "../components/MovieGrid";
 import Link from "next/link";
 
@@ -34,9 +30,7 @@ export async function generateStaticParams() {
 	return params;
 }
 
-export default async function MovieLanguagePageWithPagination({
-	params,
-}: MovieLanguagePageProps) {
+export default async function MovieLanguagePageWithPagination({ params }: MovieLanguagePageProps) {
 	const { slug, page } = await params;
 	const pageNumber = parseInt(page, 10);
 	const movies = await getMoviesByLanguage(slug, pageNumber);
@@ -80,11 +74,7 @@ export default async function MovieLanguagePageWithPagination({
 					<div className="flex justify-center items-center gap-4 py-8">
 						{hasPreviousPage ? (
 							<Link
-								href={
-									pageNumber === 1
-										? `/movies/${slug}`
-										: `/movies/${slug}/${pageNumber - 1}`
-								}
+								href={pageNumber === 1 ? `/movies/${slug}` : `/movies/${slug}/${pageNumber - 1}`}
 								className="px-6 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
 							>
 								Previous

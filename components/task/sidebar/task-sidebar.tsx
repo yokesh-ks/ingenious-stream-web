@@ -4,9 +4,17 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Tv, Radio, Film, ChevronDown, ArrowRight } from "lucide-react";
+import { Home, Tv, Radio, Film, ArrowRight, Lightbulb } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Sidebar, SidebarContent, SidebarHeader, SidebarFooter } from "@/components/ui/sidebar";
+import {
+	Sidebar,
+	SidebarContent,
+	SidebarHeader,
+	SidebarFooter,
+	SidebarGroup,
+	SidebarGroupLabel,
+	SidebarGroupContent,
+} from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { WaitlistModal } from "@/components/waitlist-modal";
 
@@ -68,21 +76,6 @@ function SidebarItem({ icon, label, badge, active, href }: SidebarItemProps) {
 	);
 }
 
-function SidebarSection({ title, children }: { title: string; children: React.ReactNode }) {
-	return (
-		<div className="mb-6">
-			<Button
-				variant="ghost"
-				className="gap-2 px-1 mb-2 text-xs h-auto py-0 text-muted-foreground hover:text-foreground"
-			>
-				<span>{title}</span>
-				<ChevronDown className="size-3" />
-			</Button>
-			<div className="space-y-0.5">{children}</div>
-		</div>
-	);
-}
-
 export function TaskSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	const pathname = usePathname();
 	const [waitlistModalOpen, setWaitlistModalOpen] = React.useState(false);
@@ -104,7 +97,7 @@ export function TaskSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
 				</SidebarHeader>
 
 				<SidebarContent className="p-4">
-					<div className="space-y-0.5 mb-6">
+					<div className="space-y-0.5">
 						<SidebarItem
 							icon={<Home className="size-4" />}
 							label="Home"
@@ -130,6 +123,20 @@ export function TaskSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
 							active={pathname === "/movies"}
 						/>
 					</div>
+
+					<SidebarGroup>
+						<SidebarGroupLabel>Tools</SidebarGroupLabel>
+						<SidebarGroupContent>
+							<div className="space-y-0.5">
+								<SidebarItem
+									icon={<Lightbulb className="size-4" />}
+									label="Movies Suggest"
+									href="/movies-suggest"
+									active={pathname === "/movies-suggest"}
+								/>
+							</div>
+						</SidebarGroupContent>
+					</SidebarGroup>
 				</SidebarContent>
 
 				<SidebarFooter className="p-4 mt-auto">
