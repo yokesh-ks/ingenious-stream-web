@@ -1,0 +1,23 @@
+{
+	"title": "Trending Movies This Week",
+	"description": "Discover the most popular movies trending across all platforms this week, based on streaming data and user engagement.",
+	"date": "2024-12-01T00:00:00.000Z",
+	"published": true,
+	"category": "trends",
+	"icon": "📈",
+	"body": {
+		"raw": "\nDiscover the most popular movies trending across all platforms this week, based on streaming data and user engagement.\n\n## Top 3 Trending Movies\n\n1. **Action Thriller** - 45% increase in views\n2. **Romantic Comedy** - 32% increase in views\n3. **Documentary** - 28% increase in views\n\n## Key Insights\n\n- Action movies dominate weekend streaming\n- Romantic comedies perform well during weekdays\n- Documentaries show steady growth in educational content\n\n*Data updated daily from major streaming platforms*\n",
+		"code": "var Component=(()=>{var h=Object.create;var o=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),v=(n,e)=>{for(var r in e)o(n,r,{get:e[r],enumerable:!0})},a=(n,e,r,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of u(e))!w.call(n,t)&&t!==r&&o(n,t,{get:()=>e[t],enumerable:!(s=g(e,t))||s.enumerable});return n};var x=(n,e,r)=>(r=n!=null?h(p(n)):{},a(e||!n||!n.__esModule?o(r,\"default\",{value:n,enumerable:!0}):r,n)),y=n=>a(o({},\"__esModule\",{value:!0}),n);var c=f((k,l)=>{l.exports=_jsx_runtime});var _={};v(_,{default:()=>m,frontmatter:()=>D});var i=x(c()),D={title:\"Trending Movies This Week\",description:\"Discover the most popular movies trending across all platforms this week, based on streaming data and user engagement.\",date:\"2024-12-01\",published:!0,category:\"trends\",icon:\"\\u{1F4C8}\"};function d(n){let e={em:\"em\",h2:\"h2\",li:\"li\",ol:\"ol\",p:\"p\",strong:\"strong\",ul:\"ul\",...n.components};return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(e.p,{children:\"Discover the most popular movies trending across all platforms this week, based on streaming data and user engagement.\"}),`\n`,(0,i.jsx)(e.h2,{children:\"Top 3 Trending Movies\"}),`\n`,(0,i.jsxs)(e.ol,{children:[`\n`,(0,i.jsxs)(e.li,{children:[(0,i.jsx)(e.strong,{children:\"Action Thriller\"}),\" - 45% increase in views\"]}),`\n`,(0,i.jsxs)(e.li,{children:[(0,i.jsx)(e.strong,{children:\"Romantic Comedy\"}),\" - 32% increase in views\"]}),`\n`,(0,i.jsxs)(e.li,{children:[(0,i.jsx)(e.strong,{children:\"Documentary\"}),\" - 28% increase in views\"]}),`\n`]}),`\n`,(0,i.jsx)(e.h2,{children:\"Key Insights\"}),`\n`,(0,i.jsxs)(e.ul,{children:[`\n`,(0,i.jsx)(e.li,{children:\"Action movies dominate weekend streaming\"}),`\n`,(0,i.jsx)(e.li,{children:\"Romantic comedies perform well during weekdays\"}),`\n`,(0,i.jsx)(e.li,{children:\"Documentaries show steady growth in educational content\"}),`\n`]}),`\n`,(0,i.jsx)(e.p,{children:(0,i.jsx)(e.em,{children:\"Data updated daily from major streaming platforms\"})})]})}function m(n={}){let{wrapper:e}=n.components||{};return e?(0,i.jsx)(e,{...n,children:(0,i.jsx)(d,{...n})}):d(n)}return y(_);})();\n;return Component;"
+	},
+	"_id": "insights/trending-movies-this-week.mdx",
+	"_raw": {
+		"sourceFilePath": "insights/trending-movies-this-week.mdx",
+		"sourceFileName": "trending-movies-this-week.mdx",
+		"sourceFileDir": "insights",
+		"contentType": "mdx",
+		"flattenedPath": "insights/trending-movies-this-week"
+	},
+	"type": "Insight",
+	"slug": "/insights/trending-movies-this-week",
+	"slugAsParams": "trending-movies-this-week"
+}

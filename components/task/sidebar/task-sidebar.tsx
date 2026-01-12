@@ -4,7 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Tv, Radio, Film, ArrowRight, Lightbulb } from "lucide-react";
+import { Home, Tv, Radio, Film, ArrowRight, Lightbulb, Calendar, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
 	Sidebar,
@@ -133,6 +133,32 @@ export function TaskSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
 									label="Movies Suggest"
 									href="/movies-suggest"
 									active={pathname === "/movies-suggest"}
+								/>
+							</div>
+						</SidebarGroupContent>
+					</SidebarGroup>
+
+					<SidebarGroup className="p-0">
+						<SidebarGroupLabel>Resources</SidebarGroupLabel>
+						<SidebarGroupContent>
+							<div className="space-y-0.5">
+								<SidebarItem
+									icon={<Calendar className="size-4" />}
+									label="TV Schedules"
+									href="/tv-guide"
+									active={pathname === "/tv-guide"}
+								/>
+								<SidebarItem
+									icon={<Film className="size-4" />}
+									label="Movie Catalog"
+									href="/movie-catalog"
+									active={pathname === "/movie-catalog"}
+								/>
+								<SidebarItem
+									icon={<TrendingUp className="size-4" />}
+									label="Insights"
+									href="/insights"
+									active={pathname === "/insights"}
 								/>
 							</div>
 						</SidebarGroupContent>

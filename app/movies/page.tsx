@@ -14,15 +14,13 @@ const languageColors: Record<string, string> = {
 	punjabi: "bg-gradient-to-br from-lime-600 to-lime-400",
 };
 
+export const metadata = {
+	title: "Movie Catalog",
+	description: "Explore movies by language and discover your next favorite film.",
+};
+
 export default async function MoviesPage() {
 	const languages = await getLanguages();
 
-	return (
-		<div className="w-full h-full overflow-y-auto bg-background">
-			<div className="max-w-[1400px] mx-auto p-6 space-y-8">
-				{/* Language Grid Component */}
-				<LanguageGrid languages={languages} languageColors={languageColors} />
-			</div>
-		</div>
-	);
+	return <LanguageGrid languages={languages} languageColors={languageColors} />;
 }

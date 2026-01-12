@@ -1,15 +1,15 @@
 export const metadata = {
-	title: "TV Guide",
-	description: "Coming soon - Interactive TV guide with schedules and channel information.",
+	title: "Movie Catalog",
+	description: "Coming soon - A comprehensive catalog of movies and entertainment content.",
 };
 
-export default function TVGuidePage() {
+export default function MovieCatalogPage() {
 	return (
 		<div className="flex flex-col items-center justify-center min-h-[400px] text-center space-y-6 py-6 lg:py-10">
 			<div className="space-y-2">
-				<h1 className="text-4xl font-bold tracking-tight">📺 TV Guide</h1>
+				<h1 className="text-4xl font-bold tracking-tight">🎬 Movie Catalog</h1>
 				<p className="text-xl text-muted-foreground">
-					Interactive TV guide with schedules and channel information
+					A comprehensive catalog of movies and entertainment content
 				</p>
 			</div>
 
@@ -17,8 +17,8 @@ export default function TVGuidePage() {
 				<div className="text-6xl mb-4">🚧</div>
 				<h2 className="text-2xl font-semibold mb-2">Coming Soon</h2>
 				<p className="text-muted-foreground">
-					We're working hard to bring you the most comprehensive TV guide experience. Stay tuned for
-					updates!
+					We're working hard to bring you the most comprehensive movie catalog experience. Stay
+					tuned for updates!
 				</p>
 			</div>
 
