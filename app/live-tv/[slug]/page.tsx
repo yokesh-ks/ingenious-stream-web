@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getChannelsByLanguage, getLanguages } from "../actions";
 import ChannelGrid from "./components/ChannelGrid";
+import { getNativeScript } from "@/lib/constants/language-data";
 
 interface PageProps {
 	params: Promise<{
@@ -68,7 +69,7 @@ export default async function LanguageChannelsPage({ params }: PageProps) {
 							}`}
 						>
 							<span className="text-xl font-black text-white tracking-tighter">
-								{currentLanguage.name.substring(0, 2).toUpperCase()}
+								{getNativeScript(currentLanguage.name)}
 							</span>
 						</div>
 					</div>

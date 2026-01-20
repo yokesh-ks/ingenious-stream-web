@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { getLanguageInfo } from "@/lib/constants/language-data";
 
 interface LanguageCardProps {
 	language: string;
@@ -17,47 +18,61 @@ interface LanguageData {
 
 // Language data with native text and actual flag colors
 const LANGUAGE_DATA: Record<string, LanguageData> = {
-	english: { native: "Hello", flag: ["#002868", "#BF0A30", "#FFFFFF"], accent: "#BF0A30" },
-	spanish: { native: "Hola", flag: ["#AA151B", "#F1BF00", "#AA151B"], accent: "#F1BF00" },
-	german: { native: "Hallo", flag: ["#000000", "#DD0000", "#FFCE00"], accent: "#FFCE00" },
-	french: { native: "Bonjour", flag: ["#002395", "#FFFFFF", "#ED2939"], accent: "#ED2939" },
-	portuguese: { native: "Olá", flag: ["#006600", "#FFCC00", "#FF0000"], accent: "#FFCC00" },
-	russian: { native: "Привет", flag: ["#FFFFFF", "#0039A6", "#D52B1E"], accent: "#D52B1E" },
-	japanese: { native: "こんにちは", flag: ["#FFFFFF", "#BC002D", "#FFFFFF"], accent: "#BC002D" },
-	hindi: { native: "नमस्ते", flag: ["#FF9933", "#FFFFFF", "#138808"], accent: "#FF9933" },
-	arabic: { native: "مرحبا", flag: ["#007A3D", "#FFFFFF", "#CE1126"], accent: "#CE1126" },
-	chinese: { native: "你好", flag: ["#DE2910", "#FFDE00", "#DE2910"], accent: "#FFDE00" },
-	italian: { native: "Ciao", flag: ["#009246", "#FFFFFF", "#CE2B37"], accent: "#CE2B37" },
-	dutch: { native: "Hallo", flag: ["#AE1C28", "#FFFFFF", "#21468B"], accent: "#AE1C28" },
-	polish: { native: "Cześć", flag: ["#FFFFFF", "#DC143C", "#FFFFFF"], accent: "#DC143C" },
-	turkish: { native: "Merhaba", flag: ["#E30A17", "#FFFFFF", "#E30A17"], accent: "#E30A17" },
-	korean: { native: "안녕하세요", flag: ["#FFFFFF", "#0047A0", "#C60C30"], accent: "#0047A0" },
-	swedish: { native: "Hej", flag: ["#006AA7", "#FECC00", "#006AA7"], accent: "#FECC00" },
-	greek: { native: "Γεια σου", flag: ["#0D5EAF", "#FFFFFF", "#0D5EAF"], accent: "#0D5EAF" },
-	czech: { native: "Ahoj", flag: ["#FFFFFF", "#D7141A", "#11457E"], accent: "#D7141A" },
-	romanian: { native: "Salut", flag: ["#002B7F", "#FCD116", "#CE1126"], accent: "#FCD116" },
-	hungarian: { native: "Szia", flag: ["#CE2939", "#FFFFFF", "#477050"], accent: "#CE2939" },
-	indonesian: { native: "Halo", flag: ["#FF0000", "#FFFFFF", "#FF0000"], accent: "#FF0000" },
-	vietnamese: { native: "Xin chào", flag: ["#DA251D", "#FFFF00", "#DA251D"], accent: "#FFFF00" },
-	thai: { native: "สวัสดี", flag: ["#A51931", "#F4F5F8", "#2D2A4A"], accent: "#A51931" },
-	ukrainian: { native: "Привіт", flag: ["#005BBB", "#FFD500", "#005BBB"], accent: "#FFD500" },
-	persian: { native: "سلام", flag: ["#239F40", "#FFFFFF", "#DA0000"], accent: "#DA0000" },
-	finnish: { native: "Hei", flag: ["#FFFFFF", "#003580", "#FFFFFF"], accent: "#003580" },
-	norwegian: { native: "Hei", flag: ["#EF2B2D", "#FFFFFF", "#002868"], accent: "#EF2B2D" },
-	danish: { native: "Hej", flag: ["#C8102E", "#FFFFFF", "#C8102E"], accent: "#C8102E" },
-	serbian: { native: "Здраво", flag: ["#C8102E", "#0C4076", "#FFFFFF"], accent: "#C8102E" },
-	croatian: { native: "Bok", flag: ["#FF0000", "#FFFFFF", "#171796"], accent: "#FF0000" },
+	english: { native: "English", flag: ["#002868", "#BF0A30", "#FFFFFF"], accent: "#BF0A30" },
+	spanish: { native: "Español", flag: ["#AA151B", "#F1BF00", "#AA151B"], accent: "#F1BF00" },
+	german: { native: "Deutsch", flag: ["#000000", "#DD0000", "#FFCE00"], accent: "#FFCE00" },
+	french: { native: "Français", flag: ["#002395", "#FFFFFF", "#ED2939"], accent: "#ED2939" },
+	portuguese: { native: "Português", flag: ["#006600", "#FFCC00", "#FF0000"], accent: "#FFCC00" },
+	russian: { native: "Русский", flag: ["#FFFFFF", "#0039A6", "#D52B1E"], accent: "#D52B1E" },
+	japanese: { native: "日本語", flag: ["#FFFFFF", "#BC002D", "#FFFFFF"], accent: "#BC002D" },
+	hindi: { native: "हिन्दी", flag: ["#FF9933", "#FFFFFF", "#138808"], accent: "#FF9933" },
+	arabic: { native: "العربية", flag: ["#007A3D", "#FFFFFF", "#CE1126"], accent: "#CE1126" },
+	chinese: { native: "中文", flag: ["#DE2910", "#FFDE00", "#DE2910"], accent: "#FFDE00" },
+	italian: { native: "Italiano", flag: ["#009246", "#FFFFFF", "#CE2B37"], accent: "#CE2B37" },
+	dutch: { native: "Nederlands", flag: ["#AE1C28", "#FFFFFF", "#21468B"], accent: "#AE1C28" },
+	polish: { native: "Polski", flag: ["#FFFFFF", "#DC143C", "#FFFFFF"], accent: "#DC143C" },
+	turkish: { native: "Türkçe", flag: ["#E30A17", "#FFFFFF", "#E30A17"], accent: "#E30A17" },
+	korean: { native: "한국어", flag: ["#FFFFFF", "#0047A0", "#C60C30"], accent: "#0047A0" },
+	swedish: { native: "Svenska", flag: ["#006AA7", "#FECC00", "#006AA7"], accent: "#FECC00" },
+	greek: { native: "Ελληνικά", flag: ["#0D5EAF", "#FFFFFF", "#0D5EAF"], accent: "#0D5EAF" },
+	czech: { native: "Čeština", flag: ["#FFFFFF", "#D7141A", "#11457E"], accent: "#D7141A" },
+	romanian: { native: "Română", flag: ["#002B7F", "#FCD116", "#CE1126"], accent: "#FCD116" },
+	hungarian: { native: "Magyar", flag: ["#CE2939", "#FFFFFF", "#477050"], accent: "#CE2939" },
+	indonesian: { native: "Bahasa", flag: ["#FF0000", "#FFFFFF", "#FF0000"], accent: "#FF0000" },
+	vietnamese: { native: "Tiếng Việt", flag: ["#DA251D", "#FFFF00", "#DA251D"], accent: "#FFFF00" },
+	thai: { native: "ภาษาไทย", flag: ["#A51931", "#F4F5F8", "#2D2A4A"], accent: "#A51931" },
+	ukrainian: { native: "Українська", flag: ["#005BBB", "#FFD500", "#005BBB"], accent: "#FFD500" },
+	persian: { native: "فارسی", flag: ["#239F40", "#FFFFFF", "#DA0000"], accent: "#DA0000" },
+	finnish: { native: "Suomi", flag: ["#FFFFFF", "#003580", "#FFFFFF"], accent: "#003580" },
+	norwegian: { native: "Norsk", flag: ["#EF2B2D", "#FFFFFF", "#002868"], accent: "#EF2B2D" },
+	danish: { native: "Dansk", flag: ["#C8102E", "#FFFFFF", "#C8102E"], accent: "#C8102E" },
+	serbian: { native: "Српски", flag: ["#C8102E", "#0C4076", "#FFFFFF"], accent: "#C8102E" },
+	croatian: { native: "Hrvatski", flag: ["#FF0000", "#FFFFFF", "#171796"], accent: "#FF0000" },
+	// Indian Languages
+	tamil: { native: "தமிழ்", flag: ["#DC2626", "#EF4444", "#F87171"], accent: "#DC2626" },
+	telugu: { native: "తెలుగు", flag: ["#2563EB", "#3B82F6", "#60A5FA"], accent: "#2563EB" },
+	kannada: { native: "ಕನ್ನಡ", flag: ["#CA8A04", "#EAB308", "#FACC15"], accent: "#CA8A04" },
+	malayalam: { native: "മലയാളം", flag: ["#0891B2", "#06B6D4", "#22D3EE"], accent: "#0891B2" },
+	bengali: { native: "বাংলা", flag: ["#EA580C", "#F97316", "#FB923C"], accent: "#EA580C" },
+	marathi: { native: "मराठी", flag: ["#DB2777", "#EC4899", "#F472B6"], accent: "#DB2777" },
+	gujarati: { native: "ગુજરાતી", flag: ["#7C3AED", "#8B5CF6", "#A78BFA"], accent: "#7C3AED" },
+	punjabi: { native: "ਪੰਜਾਬੀ", flag: ["#C2410C", "#EA580C", "#F97316"], accent: "#C2410C" },
+	odia: { native: "ଓଡ଼ିଆ", flag: ["#B91C1C", "#DC2626", "#EF4444"], accent: "#B91C1C" },
+	assamese: { native: "অসমীয়া", flag: ["#059669", "#10B981", "#34D399"], accent: "#059669" },
+	urdu: { native: "اردو", flag: ["#7C3AED", "#8B5CF6", "#A78BFA"], accent: "#7C3AED" },
+	bhojpuri: { native: "भोजपुरी", flag: ["#B45309", "#D97706", "#F59E0B"], accent: "#B45309" },
 };
 
 // Generate colors for unknown languages based on name hash
 const generateColors = (name: string): LanguageData => {
+	const langInfo = getLanguageInfo(name);
 	let hash = 0;
 	for (let i = 0; i < name.length; i++) {
 		hash = name.charCodeAt(i) + ((hash << 5) - hash);
 	}
 	const hue = Math.abs(hash % 360);
 	return {
-		native: name.charAt(0).toUpperCase() + name.slice(1),
+		native: langInfo.nativeName,
 		flag: [
 			`hsl(${hue}, 70%, 40%)`,
 			`hsl(${(hue + 40) % 360}, 60%, 50%)`,

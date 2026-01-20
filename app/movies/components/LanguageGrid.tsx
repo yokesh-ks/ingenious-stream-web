@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Search, Film, PlayCircle } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Film, PlayCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getNativeScript } from "@/lib/constants/language-data";
 import type { Language } from "../actions";
 
 interface LanguageGridProps {
@@ -14,32 +13,16 @@ interface LanguageGridProps {
 
 export default function LanguageGrid({ languages, languageColors }: LanguageGridProps) {
 	const router = useRouter();
-	const [searchQuery, setSearchQuery] = useState("");
 
 	const handleLanguageClick = (slug: string) => {
 		router.push(`/movies/${slug}`);
 	};
 
-	const filteredLanguages = languages.filter((language) =>
-		language.name.toLowerCase().includes(searchQuery.toLowerCase()),
-	);
-
 	return (
 		<>
-			{/* Search Bar */}
-			<div className="relative w-full">
-				<Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-				<Input
-					placeholder="Search movie languages..."
-					className="pl-9 bg-muted/50 border-0"
-					value={searchQuery}
-					onChange={(e) => setSearchQuery(e.target.value)}
-				/>
-			</div>
-
 			{/* Languages Grid - Film Strip Style */}
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-				{filteredLanguages.map((language) => (
+				{languages.map((language) => (
 					<div
 						key={language.slug}
 						onClick={() => handleLanguageClick(language.slug)}
@@ -78,7 +61,7 @@ export default function LanguageGrid({ languages, languageColors }: LanguageGrid
 										{/* Language initials */}
 										<div className="flex-1 flex items-center justify-center">
 											<span className="text-2xl font-black text-white drop-shadow-md">
-												{language.name.substring(0, 2).toUpperCase()}
+												{getNativeScript(language.name)}
 											</span>
 										</div>
 									</div>
@@ -118,14 +101,6 @@ export default function LanguageGrid({ languages, languageColors }: LanguageGrid
 					</div>
 				))}
 			</div>
-
-			{/* No Results */}
-			{filteredLanguages.length === 0 && (
-				<div className="text-center py-20">
-					<Film className="size-16 mx-auto mb-4 text-muted-foreground opacity-20" />
-					<p className="text-muted-foreground">No languages found matching "{searchQuery}"</p>
-				</div>
-			)}
 		</>
 	);
 }
