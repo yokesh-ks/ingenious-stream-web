@@ -57,8 +57,8 @@ function SidebarItem({ icon, label, badge, active, href }: SidebarItemProps) {
 				className={cn(
 					"w-full justify-between px-3 py-2 h-auto text-sm",
 					active
-						? "bg-muted text-foreground font-medium"
-						: "text-muted-foreground hover:bg-muted/50 hover:text-foreground",
+						? "bg-primary text-primary-foreground font-medium hover:bg-primary hover:text-primary-foreground"
+						: "text-muted-foreground hover:bg-primary/10 hover:text-primary",
 				)}
 				asChild
 			>
@@ -76,8 +76,8 @@ function SidebarItem({ icon, label, badge, active, href }: SidebarItemProps) {
 			className={cn(
 				"w-full justify-between px-3 py-2 h-auto text-sm",
 				active
-					? "bg-muted text-foreground font-medium"
-					: "text-muted-foreground hover:bg-muted/50 hover:text-foreground",
+					? "bg-primary text-primary-foreground font-medium"
+					: "text-muted-foreground hover:bg-primary/10 hover:text-primary",
 			)}
 		>
 			{content}
