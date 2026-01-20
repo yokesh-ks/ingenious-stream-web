@@ -383,3 +383,29 @@
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	gap: 1.5rem;
 }
+
+/* Puzzle specific styles */
+.puzzle-piece-placed {
+	@apply transition-all duration-300;
+	animation: piece-snap 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes piece-snap {
+	0% {
+		transform: scale(1.1);
+		filter: brightness(1.5);
+	}
+	100% {
+		transform: scale(1);
+		filter: brightness(1);
+	}
+}
+
+.puzzle-piece-correct {
+	box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+	border: 2px solid theme("colors.purple.500");
+}
+
+.puzzle-container {
+	perspective: 1000px;
+}

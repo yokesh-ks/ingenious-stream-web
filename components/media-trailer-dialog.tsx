@@ -19,17 +19,17 @@ export const MediaTrailerDialog: React.FC<MediaTrailerDialogProps> = ({ videos }
 				<Play className="mr-2 size-4" /> Watch Trailer
 			</DialogTrigger>
 
-      {trailer && (
-        <DialogContent className="max-w-screen-lg">
-          <DialogTitle className="sr-only">Watch Trailer</DialogTitle>
-          <iframe
-            className="aspect-square size-full rounded-md sm:aspect-video"
-            src={yt.video(trailer.key, true)}
-            allow="autoplay; encrypted-media"
-            allowFullScreen={true}
-          />
-        </DialogContent>
-      )}
+			{trailer && (
+				<DialogContent className="max-w-screen-lg">
+					<DialogTitle className="sr-only">Watch Trailer</DialogTitle>
+					<iframe
+						className="aspect-square size-full rounded-md sm:aspect-video"
+						src={yt.video(trailer.key, true)}
+						allow="autoplay; encrypted-media"
+						allowFullScreen={true}
+					/>
+				</DialogContent>
+			)}
 		</Dialog>
 	);
 };

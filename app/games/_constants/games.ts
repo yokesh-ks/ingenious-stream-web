@@ -1,0 +1,36 @@
+import { Puzzle, Gamepad2, Trophy } from "lucide-react";
+
+export const games = [
+	{
+		id: "puzzle",
+		title: "Jigsaw Puzzle",
+		description: "Solve beautiful puzzles from movie posters and celebrity photos",
+		icon: Puzzle,
+		href: "/games/puzzle",
+		gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
+		bgGlow: "bg-purple-500/20",
+		featured: true,
+	},
+	{
+		id: "quiz",
+		title: "Movie Quiz",
+		description: "Test your movie knowledge with fun trivia questions",
+		icon: Trophy,
+		href: "#",
+		gradient: "from-amber-500 via-orange-500 to-red-500",
+		bgGlow: "bg-orange-500/20",
+		featured: false,
+		comingSoon: true,
+	},
+	{
+		id: "memory",
+		title: "Memory Match",
+		description: "Match pairs of movie posters and celebrity faces",
+		icon: Gamepad2,
+		href: "#",
+		gradient: "from-cyan-500 via-blue-500 to-indigo-500",
+		bgGlow: "bg-blue-500/20",
+		featured: false,
+		comingSoon: true,
+	},
+];

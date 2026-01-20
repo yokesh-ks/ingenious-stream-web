@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -28,11 +28,7 @@ export default function DiscoverClient() {
 			const pageNumber = params?.page ? parseInt(params.page, 10) : 1;
 
 			try {
-				const {
-					results,
-					page,
-					total_pages,
-				} = await tmdb.discover.movie({
+				const { results, page, total_pages } = await tmdb.discover.movie({
 					watch_region: region,
 					page: pageNumber.toString(),
 					sort_by: params?.sort_by as SortByType,
@@ -43,7 +39,7 @@ export default function DiscoverClient() {
 				setCurrentPage(page);
 				setTotalPages(total_pages);
 			} catch (error) {
-				console.error('Error fetching movies:', error);
+				console.error("Error fetching movies:", error);
 			} finally {
 				setLoading(false);
 			}

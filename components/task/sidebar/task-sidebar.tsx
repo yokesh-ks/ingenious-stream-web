@@ -4,7 +4,17 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Tv, Radio, Film, ArrowRight, Lightbulb, Calendar, TrendingUp } from "lucide-react";
+import {
+	Home,
+	Tv,
+	Radio,
+	Film,
+	ArrowRight,
+	Lightbulb,
+	Calendar,
+	TrendingUp,
+	Gamepad2,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
 	Sidebar,
@@ -121,6 +131,12 @@ export function TaskSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
 							label="Movies"
 							href="/movies"
 							active={pathname === "/movies"}
+						/>
+						<SidebarItem
+							icon={<Gamepad2 className="size-4" />}
+							label="Games"
+							href="/games"
+							active={pathname === "/games" || pathname.startsWith("/games/")}
 						/>
 					</div>
 
