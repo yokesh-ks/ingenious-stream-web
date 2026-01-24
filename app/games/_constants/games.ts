@@ -2,11 +2,11 @@ import { Puzzle, Gamepad2, Trophy } from "lucide-react";
 
 export const games = [
 	{
-		id: "puzzle",
+		id: "jigsaw-puzzle",
 		title: "Jigsaw Puzzle",
 		description: "Solve beautiful puzzles from movie posters and celebrity photos",
 		icon: Puzzle,
-		href: "/games/puzzle",
+		href: "/games/jigsaw-puzzle",
 		gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
 		bgGlow: "bg-purple-500/20",
 		featured: true,

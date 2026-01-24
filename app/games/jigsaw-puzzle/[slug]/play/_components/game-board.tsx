@@ -263,7 +263,7 @@ export function GameBoard({ imageUrl }: GameBoardProps) {
 	return (
 		<div
 			ref={containerRef}
-			className="relative w-full h-full flex items-center justify-center overflow-hidden wood-texture"
+			className="relative w-full h-full flex items-center justify-center overflow-hidden"
 		>
 			{isPaused && (
 				<div className="absolute inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center">
@@ -293,44 +293,6 @@ export function GameBoard({ imageUrl }: GameBoardProps) {
 			)}
 
 			<style jsx global>{`
-        .wood-texture {
-          background:
-            /* Wood grain lines */
-            repeating-linear-gradient(
-              90deg,
-              transparent 0px,
-              transparent 2px,
-              rgba(139, 90, 43, 0.03) 2px,
-              rgba(139, 90, 43, 0.03) 4px
-            ),
-            repeating-linear-gradient(
-              87deg,
-              transparent 0px,
-              transparent 8px,
-              rgba(101, 67, 33, 0.05) 8px,
-              rgba(101, 67, 33, 0.05) 12px
-            ),
-            /* Subtle knots pattern */
-            radial-gradient(ellipse 120px 80px at 20% 30%, rgba(101, 67, 33, 0.08) 0%, transparent 50%),
-            radial-gradient(ellipse 80px 60px at 75% 60%, rgba(139, 90, 43, 0.06) 0%, transparent 50%),
-            radial-gradient(ellipse 100px 70px at 50% 85%, rgba(101, 67, 33, 0.05) 0%, transparent 50%),
-            /* Base wood gradient */
-            linear-gradient(
-              180deg,
-              #8B7355 0%,
-              #A0826D 15%,
-              #9C7A5B 30%,
-              #B8956E 50%,
-              #A68B6A 70%,
-              #8B7355 85%,
-              #7A6548 100%
-            );
-          box-shadow:
-            inset 0 0 100px rgba(0, 0, 0, 0.15),
-            inset 0 2px 4px rgba(255, 255, 255, 0.1),
-            0 4px 20px rgba(0, 0, 0, 0.3);
-          border-radius: 8px;
-        }
         .draggable {
           cursor: grab;
         }

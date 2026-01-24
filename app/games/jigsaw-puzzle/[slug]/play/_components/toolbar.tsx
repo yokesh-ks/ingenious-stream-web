@@ -29,19 +29,19 @@ export function Toolbar({ onExit }: ToolbarProps) {
 	const isCompleted = gameStatus === "completed";
 
 	return (
-		<div className="flex items-center justify-between pb-4 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border-b border-border">
+		<div className="flex items-center justify-between p-4 bg-white/10 dark:bg-black/10 backdrop-blur-md border-b border-white/20 shadow-lg">
 			{/* Left Section - Stats */}
 			<div className="flex items-center gap-4">
 				{/* Timer */}
-				<div className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-xl">
-					<Clock className="w-4 h-4 text-muted-foreground" />
-					<span className="font-mono font-bold text-foreground">{formatTime(elapsedTime)}</span>
+				<div className="flex items-center gap-2 px-4 py-2 bg-white/20 dark:bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+					<Clock className="w-4 h-4 text-white/70" />
+					<span className="font-mono font-bold text-white">{formatTime(elapsedTime)}</span>
 				</div>
 
 				{/* Piece Count */}
-				<div className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-xl">
-					<Puzzle className="w-4 h-4 text-muted-foreground" />
-					<span className="font-mono font-bold text-foreground">{difficulty} pieces</span>
+				<div className="flex items-center gap-2 px-4 py-2 bg-white/20 dark:bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+					<Puzzle className="w-4 h-4 text-white/70" />
+					<span className="font-mono font-bold text-white">{difficulty} pieces</span>
 				</div>
 			</div>
 
@@ -51,7 +51,7 @@ export function Toolbar({ onExit }: ToolbarProps) {
 				{!isCompleted && (
 					<button
 						onClick={isPaused ? resumeGame : pauseGame}
-						className="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-secondary/80 rounded-xl transition-colors"
+						className="flex items-center gap-2 px-4 py-2 bg-white/20 dark:bg-white/10 hover:bg-white/30 backdrop-blur-sm rounded-xl border border-white/20 text-white transition-colors"
 						title={isPaused ? "Resume" : "Pause"}
 					>
 						{isPaused ? (
@@ -71,8 +71,10 @@ export function Toolbar({ onExit }: ToolbarProps) {
 				{/* Preview Toggle */}
 				<button
 					onClick={togglePreview}
-					className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-colors ${
-						showPreview ? "bg-purple-500 text-white" : "bg-secondary hover:bg-secondary/80"
+					className={`flex items-center gap-2 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/20 transition-colors ${
+						showPreview
+							? "bg-purple-500/80 text-white"
+							: "bg-white/20 dark:bg-white/10 hover:bg-white/30 text-white"
 					}`}
 					title={showPreview ? "Hide Preview" : "Show Preview"}
 				>
@@ -83,7 +85,7 @@ export function Toolbar({ onExit }: ToolbarProps) {
 				{/* Restart */}
 				<button
 					onClick={restartGame}
-					className="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-secondary/80 rounded-xl transition-colors"
+					className="flex items-center gap-2 px-4 py-2 bg-white/20 dark:bg-white/10 hover:bg-white/30 backdrop-blur-sm rounded-xl border border-white/20 text-white transition-colors"
 					title="Restart"
 				>
 					<RotateCcw className="w-4 h-4" />
@@ -95,7 +97,7 @@ export function Toolbar({ onExit }: ToolbarProps) {
 			<div className="flex items-center">
 				<button
 					onClick={onExit}
-					className="flex items-center gap-2 px-4 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-600 dark:text-red-400 rounded-xl transition-colors"
+					className="flex items-center gap-2 px-4 py-2 bg-red-500/30 hover:bg-red-500/50 backdrop-blur-sm rounded-xl border border-red-500/30 text-white transition-colors"
 					title="Exit Game"
 				>
 					<X className="w-4 h-4" />

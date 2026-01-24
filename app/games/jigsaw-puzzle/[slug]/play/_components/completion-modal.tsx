@@ -128,13 +128,13 @@ export function CompletionModal() {
 							</button>
 
 							<div className="grid grid-cols-2 gap-3">
-								<button
-									onClick={resetGame}
+								<Link
+									href="/games/jigsaw-puzzle"
 									className="flex items-center justify-center gap-2 px-4 py-3 bg-secondary text-foreground font-medium rounded-xl hover:bg-secondary/80 transition-colors"
 								>
 									<Puzzle className="w-4 h-4" />
 									New Puzzle
-								</button>
+								</Link>
 								<Link
 									href="/games"
 									className="flex items-center justify-center gap-2 px-4 py-3 bg-secondary text-foreground font-medium rounded-xl hover:bg-secondary/80 transition-colors"

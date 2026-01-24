@@ -22,8 +22,7 @@ export interface PuzzleState {
 
 	// Actions
 	setImage: (url: string) => void;
-	setDifficulty: (difficulty: Difficulty) => void;
-	startGame: () => void;
+	startGame: (difficulty: Difficulty) => void;
 	pauseGame: () => void;
 	resumeGame: () => void;
 	restartGame: () => void;
@@ -59,14 +58,13 @@ export const usePuzzleStore = create<PuzzleState>((set, get) => ({
 	// Actions
 	setImage: (url) => set({ imageUrl: url, gameStatus: "selecting" }),
 
-	setDifficulty: (difficulty) => set({ difficulty }),
-
-	startGame: () => {
+	startGame: (difficulty: Difficulty) => {
 		const state = get();
 		if (!state.imageUrl) return;
 
 		set({
 			gameStatus: "playing",
+			difficulty,
 			elapsedTime: 0,
 			startTime: Date.now(),
 		});
@@ -99,7 +97,7 @@ export const usePuzzleStore = create<PuzzleState>((set, get) => ({
 		if (state.timerInterval) {
 			clearInterval(state.timerInterval);
 		}
-		get().startGame();
+		get().startGame(state.difficulty);
 	},
 
 	resetGame: () => {

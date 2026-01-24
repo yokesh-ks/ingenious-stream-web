@@ -385,7 +385,7 @@
 }
 
 /* Puzzle specific styles */
-.puzzle-piece-placed {
+.jigsaw-piece-placed {
 	@apply transition-all duration-300;
 	animation: piece-snap 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -401,11 +401,11 @@
 	}
 }
 
-.puzzle-piece-correct {
+.jigsaw-piece-correct {
 	box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
 	border: 2px solid theme("colors.purple.500");
 }
 
-.puzzle-container {
+.jigsaw-container {
 	perspective: 1000px;
 }
