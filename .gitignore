@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# OpenNext
+/.open-next
+
 # debug
 npm-debug.log*
 yarn-debug.log*
