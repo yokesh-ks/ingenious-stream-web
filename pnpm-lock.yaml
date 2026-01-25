@@ -41,9 +41,6 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.90.16
         version: 5.90.16(react@19.2.3)
-      '@types/canvas-confetti':
-        specifier: ^1.9.0
-        version: 1.9.0
       canvas-confetti:
         specifier: ^1.9.4
         version: 1.9.4
@@ -99,6 +96,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.1.16
+      '@types/canvas-confetti':
+        specifier: ^1.9.0
+        version: 1.9.0
       '@types/node':
         specifier: ^20
         version: 20.19.24
