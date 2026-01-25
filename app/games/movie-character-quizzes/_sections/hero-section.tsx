@@ -18,7 +18,6 @@ export function HeroSection() {
 					<h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
 						Movie Character <span className="text-yellow-400">Quizzes</span>
 					</h2>
-
 				</div>
 				<div className="flex items-center gap-6 text-white/80 text-sm">
 					<div className="flex items-center gap-3">
