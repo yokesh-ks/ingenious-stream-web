@@ -27,7 +27,6 @@ interface ChannelCardProps {
 function ChannelCard({ channel }: ChannelCardProps) {
 	const handleViewDetails = () => {
 		// TODO: Navigate to channel details page or open modal with EPG
-		console.log("View details for channel:", channel.channel_id);
 	};
 
 	return (

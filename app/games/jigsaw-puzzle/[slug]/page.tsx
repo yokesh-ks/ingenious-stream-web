@@ -6,7 +6,6 @@ import { DifficultySelector } from "./_components/difficulty-selector";
 
 export default async function PuzzleSlugPage({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
-	console.log({ slug });
 	// Find the selected movie based on slug
 	const selectedMovie = puzzleImages.find((movie) => movie.slug === slug);
 

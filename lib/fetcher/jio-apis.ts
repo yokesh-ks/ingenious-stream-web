@@ -87,7 +87,6 @@ export async function searchChannels(query: string): Promise<JioChannel[]> {
 
 	try {
 		const url = `${JIO_TV_SEARCH_API}?query=${encodeURIComponent(query)}`;
-		console.log("Fetching channels from:", url);
 
 		const response = await fetch(url, {
 			headers: {
@@ -95,9 +94,6 @@ export async function searchChannels(query: string): Promise<JioChannel[]> {
 			},
 			next: { revalidate: 0 }, // Don't cache search results
 		});
-
-		console.log("Response status:", response.status);
-		console.log("Response headers:", Object.fromEntries(response.headers.entries()));
 
 		if (!response.ok) {
 			const errorText = await response.text();
@@ -107,7 +103,6 @@ export async function searchChannels(query: string): Promise<JioChannel[]> {
 		}
 
 		const data: JioSearchResponse = await response.json();
-		console.log("API Response data:", data);
 		return data.data?.channels || [];
 	} catch (error) {
 		console.error("Error searching channels:", error);

@@ -130,7 +130,7 @@ export function TaskSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
 							icon={<Film className="size-4" />}
 							label="Movies"
 							href="/movies"
-							active={pathname.includes("/movies")}
+							active={pathname === "/movies" || pathname.startsWith("/movies/")}
 						/>
 						<SidebarItem
 							icon={<Gamepad2 className="size-4" />}
@@ -159,22 +159,10 @@ export function TaskSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
 						<SidebarGroupContent>
 							<div className="space-y-0.5">
 								<SidebarItem
-									icon={<Calendar className="size-4" />}
-									label="TV Schedules"
-									href="/tv-guide"
-									active={pathname.includes("/tv-guide")}
-								/>
-								<SidebarItem
 									icon={<Film className="size-4" />}
 									label="Movie Catalog"
 									href="/movie-catalog"
 									active={pathname.includes("/movie-catalog")}
-								/>
-								<SidebarItem
-									icon={<TrendingUp className="size-4" />}
-									label="Insights"
-									href="/insights"
-									active={pathname.includes("/insights")}
 								/>
 							</div>
 						</SidebarGroupContent>
