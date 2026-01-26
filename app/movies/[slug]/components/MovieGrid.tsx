@@ -35,21 +35,21 @@ export default function MovieGrid({ movies, language }: MovieGridProps) {
 			</div>
 
 			{/* Movies Grid - YouTube Style */}
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
 				{filteredMovies.map((movie) => (
 					<div key={movie.id} className="group cursor-pointer">
-						{/* Thumbnail Container - YouTube 16:9 aspect ratio */}
+						{/* Poster Container - Movie poster aspect ratio */}
 						<div
-							className="relative aspect-video rounded-xl overflow-hidden bg-muted mb-3"
+							className="relative aspect-[2/3] rounded-xl overflow-hidden bg-muted mb-3"
 							onClick={() => setPlayingMovie(movie)}
 						>
-							{/* YouTube Thumbnail */}
+							{/* Movie Poster */}
 							<img
-								src={`https://img.youtube.com/vi/${movie.videoId}/maxresdefault.jpg`}
+								src={movie.posterPath}
 								alt={movie.name}
 								className="w-full h-full object-cover"
 								onError={(e) => {
-									// Fallback to medium quality if maxres fails
+									// Fallback to YouTube thumbnail if poster fails to load
 									const target = e.target as HTMLImageElement;
 									target.src = `https://img.youtube.com/vi/${movie.videoId}/hqdefault.jpg`;
 								}}
@@ -60,46 +60,6 @@ export default function MovieGrid({ movies, language }: MovieGridProps) {
 								Movie
 							</div>
 
-							{/* Logo Overlay on Hover */}
-							<div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-								<div className="size-12 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg overflow-hidden">
-									<Image
-										src="/icon.png"
-										alt="Play"
-										width={48}
-										height={48}
-										className="object-cover"
-									/>
-								</div>
-							</div>
-						</div>
-
-						{/* Video Info - YouTube Style */}
-						<div className="flex gap-3">
-							{/* Movie Icon (replaces channel avatar in YouTube) */}
-							<div className="flex-shrink-0">
-								<div className="size-9 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
-									<span className="text-white text-xs font-bold">
-										{movie.name.substring(0, 1).toUpperCase()}
-									</span>
-								</div>
-							</div>
-
-							{/* Movie Details */}
-							<div className="flex-1 min-w-0">
-								<h3
-									className="font-semibold text-sm line-clamp-2 mb-1"
-									onClick={() => setSelectedMovie(movie)}
-								>
-									{movie.name}
-								</h3>
-
-								<div className="flex items-center gap-2 text-xs text-muted-foreground">
-									<span className="capitalize">{language}</span>
-									<span>•</span>
-									<span>Full Movie</span>
-								</div>
-							</div>
 						</div>
 					</div>
 				))}

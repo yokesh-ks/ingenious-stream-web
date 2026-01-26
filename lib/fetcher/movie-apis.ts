@@ -11,6 +11,7 @@ export interface Movie {
 	id: string;
 	name: string;
 	videoId: string;
+	posterPath: string;
 }
 
 export interface LanguageMetadata {

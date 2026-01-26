@@ -23,8 +23,7 @@ export default async function MovieLanguagePage({ params }: MovieLanguagePagePro
 	const hasNextPage = metadata && metadata.files > 1;
 
 	return (
-		<div className="w-full h-full overflow-y-auto bg-background">
-			<div className="max-w-[1400px] mx-auto p-6 space-y-6">
+		<>
 				{/* Header */}
 				<div className="space-y-2">
 					<h1 className="text-3xl font-bold">{languageName} Movies</h1>
@@ -79,7 +78,6 @@ export default async function MovieLanguagePage({ params }: MovieLanguagePagePro
 						)}
 					</div>
 				)}
-			</div>
-		</div>
+		</>
 	);
 }
